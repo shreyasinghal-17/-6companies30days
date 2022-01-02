@@ -1,0 +1,14 @@
+string encode(string src)
+{     
+  //Your code here 
+  string ans="";
+   int i=0,j=0;
+   while(j<src.size()){
+       while(src[i]==src[j]){
+           j++;
+       }
+       ans+=src[i] + to_string(j-i);
+       i=j;
+   }
+   return ans;
+}     
