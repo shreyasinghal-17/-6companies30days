@@ -1,0 +1,39 @@
+class Solution{   
+public:
+    string printMinNumberForPattern(string S){
+        // code here 
+        stack <int>st;
+        int num=1;
+        string ans;
+        if(S.size()==0) return ans;
+        for(auto it:S)
+        {
+          
+          if(it=='D')
+          {
+              st.push(num);
+              num++;
+          }
+          else 
+          {
+              st.push(num);
+              num++;
+              while(!st.empty())
+              {
+                  ans+=to_string(st.top());
+                  st.pop();
+              }
+              
+          }
+        }
+          st.push(num++);
+          while(!st.empty())
+          {
+              ans+=to_string(st.top());
+              st.pop();
+          }
+        
+        return ans;
+        
+    }
+};
