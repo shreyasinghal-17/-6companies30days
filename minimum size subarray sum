@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int left=0;
+        int right=0;
+        int currsum=0;
+        int ans=INT_MAX;
+       while(left<right)
+        {
+            currsum=currsum+nums[right];
+           
+           if(currsum<target)
+           {
+               right++;
+           }
+           else if(currsum>target)
+           {
+               ans=abs(right-left+1);
+               currsum=currsum-nums[left++];
+           }
+       }
+           
+       return ans;   
+    }
+};
